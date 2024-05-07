@@ -1,6 +1,7 @@
-flask
+flask~=2.2.5
 flask-sqlalchemy
 flask-security-too
 flask-mailman
 bcrypt
-python-dotenv
+python-dotenv~=1.0.1
+sqlalchemy~=2.0.29

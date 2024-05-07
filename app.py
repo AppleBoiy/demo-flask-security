@@ -37,6 +37,11 @@ db.init_app(app)
 user_datastore = SQLAlchemySessionUserDatastore(db.session, User, Role)
 security = Security(app, user_datastore)
 
+with app.app_context():
+    db.drop_all()
+    db.create_all()
+    db.session.commit()
+
 
 @app.route("/")
 def home():
@@ -48,3 +53,7 @@ def home():
 @login_required
 def protected():
     return "You're logged in!"
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
